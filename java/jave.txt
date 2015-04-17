@@ -1,0 +1,53 @@
+import java.util.*;
+public class testQuadraticEquation {
+    public static void main(String[] args) {
+        String x1,x2;
+        double aa,bb,cc;
+        System.out.print("«Î ‰»Îa°¢b°¢c£∫\n");
+        Scanner input = new Scanner(System.in);
+        double a = input.nextDouble();
+        double b = input.nextDouble();
+        double c = input.nextDouble();
+        QuadraticEquation qe=new QuadraticEquation(a,b,c);
+        if(qe.getDiscriminant()<0)
+            System.out.print("ŒﬁΩ‚\n");
+        else{
+                x1=qe.getRoot1();
+       		x2=qe.getRoot2();
+        	System.out.println("x1 is "+ x1 + " and x2 is "+ x2+"\n");
+        }
+    }    
+}
+class QuadraticEquation{
+        private double a,b,c;
+        public QuadraticEquation(double a,double b,double c){
+            this.a=a;
+            this.b=b;
+            this.c=c;        
+        }
+        public double getA(){
+            return a;   
+        }                     
+        public double getB(){
+            return b;
+        }               
+        public double getC(){
+            return c;
+        }                
+        public double getDiscriminant(){
+            double k=b*b-4*a*c;
+            return k;   
+        }
+        public String getRoot1()
+        { 
+     		double x1=(-b+Math.sqrt(getDiscriminant()))/(2*a); 
+            String X1=Double.toString(x1);
+            return X1;
+        }
+        public String getRoot2()
+        {
+            double x1=(-b-Math.sqrt(getDiscriminant()))/(2*a); 
+            String X1=Double.toString(x1);    
+            return X1;
+        }        
+}
